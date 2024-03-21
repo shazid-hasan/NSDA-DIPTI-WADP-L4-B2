@@ -1,18 +1,17 @@
-{% extends "base.html" %} 
-
-
+{% extends "base.html" %}
 
 {% block title %} Home Page {% endblock title %}
 {% block content %}
-<div class="m-3">
-    <h1 class="pt-1 text-center">User Portfolio Update Form</h1>
+<div class="m-3" style="background-color: #a1d19954;">
+    <h1 class="pt-1 text-center" style="font-family: 'Arial', sans-serif; color: #212427fa; font-size: 36px; font-weight: bold; border-bottom: 2px solid #191918; padding-bottom: 10px;">Portfolio Update Form</h1>
+
     <div class="container">
-        <form action="" method="post"  enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             
-            {{form.as_p}}
-            <button type="submit">submit</button>
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
         </form>
-       
     </div>
+</div>
 {% endblock content %}
