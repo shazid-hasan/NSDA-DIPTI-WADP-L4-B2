@@ -1,11 +1,16 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
+
+def validate_age(value):
+    if value is not None and (value < 0 or value > 200):
+        raise ValidationError("Age must be between 0 and 200.")
 
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=255, null=True)
-    age = models.IntegerField(null=True)
+    age = models.IntegerField(null=True, validators=[validate_age])
     gender = models.CharField(max_length=10, choices=[('Male', 'Male'), ('Female', 'Female')], null=True)
     title = models.CharField(max_length=200, null=True)
     description = models.TextField(null=True)
