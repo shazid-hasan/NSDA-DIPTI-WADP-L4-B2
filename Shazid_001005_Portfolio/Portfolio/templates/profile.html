@@ -11,13 +11,19 @@
     {% endif %}
     
     <div class="info-section">
-      <h2>Basic Information</h2>
-        <h1>{{ obj.name }}</h1>
-        <h6><b>Carrer Objective: </b>{{ obj.carrer_obj }}</h6>
-        <p><strong>Email:</strong> {{ obj.email }}</p>
-        <p><strong>Gender:</strong> {{ obj.gender }}</p>
-        <p><strong>Age:</strong> {{ obj.age }}</p>
-        <p><strong>Title:</strong> {{ obj.title }}</p>
+        <h2>Basic Information</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Name:</strong> {{ obj.name }}</p>
+                <p><strong>Career Objective:</strong> {{ obj.career_obj }}</p>
+                <p><strong>Email:</strong> {{ obj.email }}</p>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Gender:</strong> {{ obj.gender }}</p>
+                <p><strong>Age:</strong> {{ obj.age }}</p>
+                <p><strong>Title:</strong> {{ obj.title }}</p>
+            </div>
+        </div>
         <hr>
     </div>
     
@@ -26,6 +32,7 @@
         <p><strong>Position:</strong> {{ obj.position }}</p>
         <p><strong>Company:</strong> {{ obj.company }}</p>
         <p>{{ obj.description }}</p>
+        <hr>
     </div>
     
     <div class="education-section">
@@ -33,17 +40,19 @@
         <p><strong>Institution:</strong> {{ obj.institution }}</p>
         <p><strong>Degree:</strong> {{ obj.degree }}</p>
         <p><strong>Field of Study:</strong> {{ obj.field_of_study }}</p>
+        <hr>
     </div>
 
     <div class="skills-section">
         <h2>Skills</h2>
         <p>{{ obj.technology }}</p>
+        <hr>
     </div>
     <div class="skills-section">
-      <h2>Message</h2>
-      <p>{{ obj.message }}</p>
-  </div>
+        <h2>Message</h2>
+        <p>{{ obj.message }}</p>
+    </div>
 
-    <a href="{% url 'user_profile_update' %}" class="btn">Edit Profile</a>
+    <a href="{% url 'user_profile_update' %}" class="btn btn-primary">Edit Profile</a>
 </div>
 {% endblock content %}
