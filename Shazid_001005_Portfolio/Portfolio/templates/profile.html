@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Portfolio Page{% endblock title %}
+
+{% block content %}
+<div class="resume-wrapper">
+    {% if obj.image %}
+    <div class="profile-section">
+        <img src="{{ obj.image.url }}" alt="Profile Image" class="profile-image"/>
+    </div>
+    {% endif %}
+    
+    <div class="info-section">
+      <h2>Basic Information</h2>
+        <h1>{{ obj.name }}</h1>
+        <h6><b>Carrer Objective: </b>{{ obj.carrer_obj }}</h6>
+        <p><strong>Email:</strong> {{ obj.email }}</p>
+        <p><strong>Gender:</strong> {{ obj.gender }}</p>
+        <p><strong>Age:</strong> {{ obj.age }}</p>
+        <p><strong>Title:</strong> {{ obj.title }}</p>
+        <hr>
+    </div>
+    
+    <div class="experience-section">
+        <h2>Experience</h2>
+        <p><strong>Position:</strong> {{ obj.position }}</p>
+        <p><strong>Company:</strong> {{ obj.company }}</p>
+        <p>{{ obj.description }}</p>
+    </div>
+    
+    <div class="education-section">
+        <h2>Education</h2>
+        <p><strong>Institution:</strong> {{ obj.institution }}</p>
+        <p><strong>Degree:</strong> {{ obj.degree }}</p>
+        <p><strong>Field of Study:</strong> {{ obj.field_of_study }}</p>
+    </div>
+
+    <div class="skills-section">
+        <h2>Skills</h2>
+        <p>{{ obj.technology }}</p>
+    </div>
+    <div class="skills-section">
+      <h2>Message</h2>
+      <p>{{ obj.message }}</p>
+  </div>
+
+    <a href="{% url 'user_profile_update' %}" class="btn">Edit Profile</a>
+</div>
+{% endblock content %}
